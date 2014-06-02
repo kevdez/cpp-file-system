@@ -22,3 +22,8 @@
 /filesystem143b/filesystem143b/Debug
 *.ilk
 *.pdb
+/filesystem143b/filesystem143b/filesystem143b.vcxproj.user
+/filesystem143b/filesystem143b.opensdf
+/filesystem143b/filesystem143b.sdf
+/filesystem143b/filesystem143b.sln
+/filesystem143b/filesystem143b.v11.suo
