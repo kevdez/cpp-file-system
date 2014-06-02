@@ -4,15 +4,21 @@
 #include<string>
 #include "Filesys.h"
 
-class Driver
+static class Driver
 {
 private:
 	FileSys fs;
 	std::string currentCommand;
+	std::string outputString;
+
+	void parse();	// figures out the command and executes on FS
 
 public:
-	Driver();
+	Driver();	// constructor, init the FS
 
+	void runCL();	// command line UI
+	void runInputFile(std::string inputFile); // input file -> output console
+	void runInNOut(std::string inputFile, std::string outputFile); // input file -> output file
 };
 
 #endif // !DRIVER_H
