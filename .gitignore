@@ -19,3 +19,6 @@
 *.exe
 *.out
 *.app
+/filesystem143b/filesystem143b/Debug
+*.ilk
+*.pdb
