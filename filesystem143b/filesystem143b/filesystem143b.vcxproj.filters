@@ -32,10 +32,10 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Filsys.cpp">
+    <ClCompile Include="Driver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Driver.cpp">
+    <ClCompile Include="Filesys.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

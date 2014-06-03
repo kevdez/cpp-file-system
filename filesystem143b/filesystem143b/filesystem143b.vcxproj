@@ -84,7 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Driver.cpp" />
-    <ClCompile Include="Filsys.cpp" />
+    <ClCompile Include="Filesys.cpp" />
     <ClCompile Include="Iosys.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
