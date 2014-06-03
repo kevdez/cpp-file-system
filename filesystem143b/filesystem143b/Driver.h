@@ -11,8 +11,8 @@ private:
 	std::string currentCommand;
 	std::string outputString;
 
-	void parse();	// figures out the command and executes on FS
-
+	void parseAndExecute();	// figures out the command and executes on FS
+	void error();
 public:
 	Driver();	// constructor, init the FS
 

@@ -2,6 +2,8 @@
 #include <string>
 #include <sstream>
 #include "Driver.h"
+#include "Filesys.h"
+#include "Iosys.h"
 
 using namespace std;
 
@@ -9,30 +11,28 @@ using namespace std;
 int main( int argc, const char* argv[] )
 {
 	Driver driver;
-	printf( "\nHi! Put in some words!\n\n" );
+	cout << endl;
+
 	if (argc == 1)		// no arguments, besides default program name arg
 	{	
-		driver = Driver();
-		driver.runCL();
+		printf("NO argument. Running command line version.\nEnter \"-1\" to quit.\n\n");
+		//driver = Driver();
+		//driver.runCL();
 	}
 	else if (argc == 2)	// one argument, the input file
 	{
-		driver.runInputFile(argv[1]);
+		printf("ONE argument. Running input file version.\n\n");
+		//driver.runInputFile(argv[1]);
 	}
 	else if (argc == 3)	// two arguments, input and output files
 	{
-		driver.runInNOut(argv[1], argv[2]);
+		printf("TWO arguments. Running input + output file version.\n\n");
+		//driver.runInNOut(argv[1], argv[2]);
 	}
 	else
 	{
-		cout << "Error: Too many arguments.\nOnly accepts 0, 1, or 2 arguments." << endl;
+		cout << "Error: Too many arguments.\nOnly accepts 0, 1, or 2 arguments.\n\n" << endl;
 	}
-
-	// Prints each argument on the command line.
-	/*for( int i = 0; i < argc; i++ )
-	{
-		printf( "arg %d: %s\n", i, argv[i] );
-	}*/
 
 	return 0;
 }
