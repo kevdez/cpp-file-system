@@ -1,9 +1,9 @@
 #include <iostream>
 #include <string>
 #include <sstream>
-#include "Driver.h"
-#include "Filesys.h"
 #include "Iosys.h"
+#include "Filesys.h"
+#include "Driver.h"
 
 using namespace std;
 
@@ -11,7 +11,8 @@ using namespace std;
 int main( int argc, const char* argv[] )
 {
 	Driver driver;
-	cout << endl;
+	char c = -1;
+	cout << c;
 
 	if (argc == 1)		// no arguments, besides default program name arg
 	{	

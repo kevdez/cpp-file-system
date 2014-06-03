@@ -4,7 +4,7 @@
 #include<string>
 #include "Filesys.h"
 
-static class Driver
+class Driver
 {
 private:
 	FileSys fs;

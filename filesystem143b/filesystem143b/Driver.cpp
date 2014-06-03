@@ -1,7 +1,6 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include <string>
 #include <vector>
 #include "Driver.h"
 
@@ -76,7 +75,7 @@ void Driver::parseAndExecute()
 	{
 		if (tokens.size() == 2)
 		{
-			int index = atoi(tokens.at(1).c_str);
+			int index = atoi(tokens.at(1).c_str());
 			outputString = fs.close(index);
 		}
 		else
@@ -86,8 +85,8 @@ void Driver::parseAndExecute()
 	{
 		if (tokens.size() == 3)
 		{
-			int index = std::atoi(tokens.at(1).c_str);
-			int count = std::atoi(tokens.at(2).c_str);
+			int index = std::atoi(tokens.at(1).c_str());
+			int count = std::atoi(tokens.at(2).c_str());
 			outputString = fs.read(index, count);
 		}
 		else
@@ -97,9 +96,10 @@ void Driver::parseAndExecute()
 	{
 		if (tokens.size() == 4)
 		{
-			int index = std::atoi(tokens.at(1).c_str);
-			char letter = tokens.at(2).c_str;
-			int count = std::atoi(tokens.at(3).c_str);
+			int index = std::atoi(tokens.at(1).c_str());
+			std::string s = tokens.at(2);
+			char letter = s[0];
+			int count = std::atoi(tokens.at(3).c_str());
 			outputString = fs.write(index, letter, count);
 		}
 		else
@@ -109,8 +109,8 @@ void Driver::parseAndExecute()
 	{
 		if (tokens.size() == 3)
 		{
-			int index = std::atoi(tokens.at(1).c_str);
-			int pos = std::atoi(tokens.at(2).c_str);
+			int index = std::atoi(tokens.at(1).c_str());
+			int pos = std::atoi(tokens.at(2).c_str());
 			outputString = fs.seek(index, pos);
 		}
 		else
