@@ -8,6 +8,7 @@ class FileSys
 {
 private:
 	IOSys iosys;
+	double MASK[4];
 	
 public:
 

@@ -11,8 +11,9 @@ using namespace std;
 int main( int argc, const char* argv[] )
 {
 	Driver driver;
-	char c = -1;
-	cout << c;
+	double c = 0x000000f;
+	char* p(char[1][8]);
+	cout << "This is what c is: " << c << endl;
 
 	if (argc == 1)		// no arguments, besides default program name arg
 	{	
