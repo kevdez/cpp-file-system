@@ -7,9 +7,9 @@
 class Driver
 {
 private:
-	FileSys fs;
-	std::string currentCommand;
-	std::string outputString;
+	static FileSys fs;
+	static std::string currentCommand;
+	static std::string outputString;
 
 	void parseAndExecute();	// figures out the command and executes on FS
 	void error();

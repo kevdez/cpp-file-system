@@ -1,10 +1,31 @@
 #include <string>
 #include "Filesys.h"
+#include "Iosys.h"
 
+using namespace std;
+typedef char byte; 
 
 FileSys::FileSys()
-	:iosys(IOSys())
 {
+	ios = IOSys();
+	oft = OFT();
+	oft.initializeOFT();
+}
+
+void FileSys::initializeEmptyBitMap()
+{
+	byte* p = new byte[64];
+
+	// first 7 blocks are occupied
+	p[0] = 0xFE; // 1111 1110
+
+	// the rest of the blocks are empty
+	for (int i = 1; i < 64; i++)
+	{
+		p[i] = 0x00; // 0000 0000
+	}
+
+	ios.write_block(0, p);
 }
 
 std::string FileSys::create(std::string name)

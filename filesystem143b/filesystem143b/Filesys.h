@@ -3,16 +3,22 @@
 
 #include <string>
 #include "Iosys.h"
+#include "OFT.h"
 
 class FileSys
 {
 private:
-	IOSys iosys;
-	double MASK[4];
-	
+	static IOSys ios;
+	static OFT oft;
+
+	void initializeEmptyBitMap();
+	bool isBlockEmptyInBitMap(int blockNumber);
+	void setBlockOccupiedInBitMap(int blockNumber);
 public:
 
 	FileSys();	// constructor, initializes IOSystem
+	
+	void restoreIOSystem(std::string fileName);
 	
 	std::string create(std::string name);	// cr <name>
 	std::string destroy(std::string name);	// de <name>

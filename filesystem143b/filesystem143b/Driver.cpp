@@ -4,37 +4,71 @@
 #include <vector>
 #include "Driver.h"
 
+using namespace std;
+
 Driver::Driver()
-	:fs(FileSys())
 {
+	fs = FileSys();
 }
 
+// read from console, output to console
 void Driver::runCL()
 {
-	std::getline(std::cin, currentCommand);
+	getline(cin, currentCommand);
 	while (currentCommand != "-1")
 	{
 		parseAndExecute();
-		std::getline(std::cin, currentCommand);
+		getline(cin, currentCommand);
 	}
 }
 
+// read from file, output to console
 void Driver::runInputFile(std::string inputFile)
 {
-	std::ifstream infile;
+	ifstream infile;
+	if (inFile.is_open())
+	{
+		while (getline(inFile, currentCommand))
+		{
+			parseAndExecute();
+			cout << outputString << endl;
+		}
+		inFile.close();
+	}
+	else
+	{
+		cout << "Unable to open " << inputFile << endl;
+	}
 }
 
+// read from file, output to file
 void Driver::runInNOut(std::string inputFile, std::string outputFile)
 {
-	std::ifstream inFile;
-	std::ofstream outFile;
+	ifstream inFile(inputFile); 
+	ofstream outFile(outputFile);
+	if (inFile.is_open())
+	{
+		while (getline(inFile, currentCommand))
+		{
+			parseAndExecute();
+			outFile << outputString << endl;
+		}
+		inFile.close();
+		outFile.close();
+
+	}
+	else
+	{
+		cout << "Unable to open " << inputFile << endl;
+	}
+	
 }
 
 void Driver::parseAndExecute()
 {
-	std::vector<std::string> tokens;
-	std::istringstream iss(currentCommand);
-	std::string word;
+	vector<string> tokens;
+	istringstream iss(currentCommand);
+	string word;
 
 	while (iss >> word)
 	{
@@ -85,8 +119,8 @@ void Driver::parseAndExecute()
 	{
 		if (tokens.size() == 3)
 		{
-			int index = std::atoi(tokens.at(1).c_str());
-			int count = std::atoi(tokens.at(2).c_str());
+			int index = atoi(tokens.at(1).c_str());
+			int count = atoi(tokens.at(2).c_str());
 			outputString = fs.read(index, count);
 		}
 		else
@@ -96,10 +130,9 @@ void Driver::parseAndExecute()
 	{
 		if (tokens.size() == 4)
 		{
-			int index = std::atoi(tokens.at(1).c_str());
-			std::string s = tokens.at(2);
-			char letter = s[0];
-			int count = std::atoi(tokens.at(3).c_str());
+			int index = atoi(tokens.at(1).c_str());
+			char letter = tokens.at(2)[0];
+			int count = atoi(tokens.at(3).c_str());
 			outputString = fs.write(index, letter, count);
 		}
 		else
@@ -109,8 +142,8 @@ void Driver::parseAndExecute()
 	{
 		if (tokens.size() == 3)
 		{
-			int index = std::atoi(tokens.at(1).c_str());
-			int pos = std::atoi(tokens.at(2).c_str());
+			int index = atoi(tokens.at(1).c_str());
+			int pos = atoi(tokens.at(2).c_str());
 			outputString = fs.seek(index, pos);
 		}
 		else
