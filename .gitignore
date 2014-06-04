@@ -20,6 +20,7 @@
 *.out
 *.app
 /filesystem143b/filesystem143b/Debug
+/filesystem143b/filesystem143b/Tests
 *.ilk
 *.pdb
 /filesystem143b/filesystem143b/filesystem143b.vcxproj.user
